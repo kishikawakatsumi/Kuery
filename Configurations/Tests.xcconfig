@@ -1,0 +1,17 @@
+SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator appletvos appletvsimulator;
+TARGETED_DEVICE_FAMILY = 1,2;
+
+COMBINE_HIDPI_IMAGES = YES;
+PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.$(PRODUCT_NAME:rfc1034identifier);
+PRODUCT_NAME = $(TARGET_NAME);
+APPLICATION_EXTENSION_API_ONLY = NO;
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+INFOPLIST_FILE = Tests/KueryTests/Info.plist;
+
+
+LD_RUNPATH_SEARCH_PATHS[sdk=iphone*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks;
+LD_RUNPATH_SEARCH_PATHS[sdk=watch*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks;
+LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks;
+LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks;
+
+EXCLUDED_SOURCE_FILE_NAMES[sdk=watch*] = *;

@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		147DB3E51EF116230071DAC5 /* Kuery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147DB3DB1EF116230071DAC5 /* Kuery.framework */; };
+		14B407541EF15B720038457E /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B407531EF159210038457E /* Tests.swift */; };
+		14B407551EF15B7D0038457E /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4074C1EF159140038457E /* Operator.swift */; };
+		14B407561EF15B7D0038457E /* Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4074D1EF159140038457E /* Predicate.swift */; };
+		14B407571EF15B7D0038457E /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4074E1EF159140038457E /* Query.swift */; };
+		14B407581EF15B810038457E /* Kuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 14B4074B1EF159140038457E /* Kuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14B407591EF15BB10038457E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14B407511EF159210038457E /* Model.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		147DB3E61EF116230071DAC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 147DB3D21EF116230071DAC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 147DB3DA1EF116230071DAC5;
+			remoteInfo = Kuery;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		147DB3DB1EF116230071DAC5 /* Kuery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kuery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		147DB3E41EF116230071DAC5 /* KueryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KueryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		14B4074A1EF159140038457E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14B4074B1EF159140038457E /* Kuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kuery.h; sourceTree = "<group>"; };
+		14B4074C1EF159140038457E /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
+		14B4074D1EF159140038457E /* Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicate.swift; sourceTree = "<group>"; };
+		14B4074E1EF159140038457E /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		14B407501EF159210038457E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14B407521EF159210038457E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		14B407531EF159210038457E /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		14D06BA61EF142CA00E89EAB /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		14D06BA71EF1430300E89EAB /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		14D06BA81EF1430300E89EAB /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		14D06BA91EF1430300E89EAB /* Kuery.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Kuery.xcconfig; sourceTree = "<group>"; };
+		14D06BAA1EF1430300E89EAB /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		147DB3D71EF116230071DAC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		147DB3E11EF116230071DAC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				147DB3E51EF116230071DAC5 /* Kuery.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		147DB3D11EF116230071DAC5 = {
+			isa = PBXGroup;
+			children = (
+				147DB3DD1EF116230071DAC5 /* Sources */,
+				147DB3E81EF116230071DAC5 /* Tests */,
+				14D06BA51EF142CA00E89EAB /* Configurations */,
+				147DB3DC1EF116230071DAC5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		147DB3DC1EF116230071DAC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				147DB3DB1EF116230071DAC5 /* Kuery.framework */,
+				147DB3E41EF116230071DAC5 /* KueryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		147DB3DD1EF116230071DAC5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				14B407491EF159140038457E /* Kuery */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		147DB3E81EF116230071DAC5 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				14B4074F1EF159210038457E /* KueryTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		14B407491EF159140038457E /* Kuery */ = {
+			isa = PBXGroup;
+			children = (
+				14B4074B1EF159140038457E /* Kuery.h */,
+				14B4074E1EF159140038457E /* Query.swift */,
+				14B4074D1EF159140038457E /* Predicate.swift */,
+				14B4074C1EF159140038457E /* Operator.swift */,
+				14B4074A1EF159140038457E /* Info.plist */,
+			);
+			path = Kuery;
+			sourceTree = "<group>";
+		};
+		14B4074F1EF159210038457E /* KueryTests */ = {
+			isa = PBXGroup;
+			children = (
+				14B407531EF159210038457E /* Tests.swift */,
+				14B407511EF159210038457E /* Model.xcdatamodeld */,
+				14B407501EF159210038457E /* Info.plist */,
+			);
+			path = KueryTests;
+			sourceTree = "<group>";
+		};
+		14D06BA51EF142CA00E89EAB /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				14D06BA61EF142CA00E89EAB /* Base.xcconfig */,
+				14D06BAA1EF1430300E89EAB /* Debug.xcconfig */,
+				14D06BA81EF1430300E89EAB /* Release.xcconfig */,
+				14D06BA91EF1430300E89EAB /* Kuery.xcconfig */,
+				14D06BA71EF1430300E89EAB /* Tests.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		147DB3D81EF116230071DAC5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14B407581EF15B810038457E /* Kuery.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		147DB3DA1EF116230071DAC5 /* Kuery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 147DB3EF1EF116230071DAC5 /* Build configuration list for PBXNativeTarget "Kuery" */;
+			buildPhases = (
+				147DB3D61EF116230071DAC5 /* Sources */,
+				147DB3D71EF116230071DAC5 /* Frameworks */,
+				147DB3D81EF116230071DAC5 /* Headers */,
+				147DB3D91EF116230071DAC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kuery;
+			productName = Kuery;
+			productReference = 147DB3DB1EF116230071DAC5 /* Kuery.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		147DB3E31EF116230071DAC5 /* KueryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 147DB3F21EF116230071DAC5 /* Build configuration list for PBXNativeTarget "KueryTests" */;
+			buildPhases = (
+				147DB3E01EF116230071DAC5 /* Sources */,
+				147DB3E11EF116230071DAC5 /* Frameworks */,
+				147DB3E21EF116230071DAC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				147DB3E71EF116230071DAC5 /* PBXTargetDependency */,
+			);
+			name = KueryTests;
+			productName = KueryTests;
+			productReference = 147DB3E41EF116230071DAC5 /* KueryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		147DB3D21EF116230071DAC5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Kishikawa Katsumi";
+				TargetAttributes = {
+					147DB3DA1EF116230071DAC5 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					147DB3E31EF116230071DAC5 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 147DB3D51EF116230071DAC5 /* Build configuration list for PBXProject "Kuery" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 147DB3D11EF116230071DAC5;
+			productRefGroup = 147DB3DC1EF116230071DAC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				147DB3DA1EF116230071DAC5 /* Kuery */,
+				147DB3E31EF116230071DAC5 /* KueryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		147DB3D91EF116230071DAC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		147DB3E21EF116230071DAC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		147DB3D61EF116230071DAC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14B407551EF15B7D0038457E /* Operator.swift in Sources */,
+				14B407571EF15B7D0038457E /* Query.swift in Sources */,
+				14B407561EF15B7D0038457E /* Predicate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		147DB3E01EF116230071DAC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14B407541EF15B720038457E /* Tests.swift in Sources */,
+				14B407591EF15BB10038457E /* Model.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		147DB3E71EF116230071DAC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 147DB3DA1EF116230071DAC5 /* Kuery */;
+			targetProxy = 147DB3E61EF116230071DAC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		147DB3ED1EF116230071DAC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D06BAA1EF1430300E89EAB /* Debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		147DB3EE1EF116230071DAC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D06BA81EF1430300E89EAB /* Release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		147DB3F01EF116230071DAC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D06BA91EF1430300E89EAB /* Kuery.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.Kuery;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		147DB3F11EF116230071DAC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D06BA91EF1430300E89EAB /* Kuery.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.Kuery;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+		147DB3F31EF116230071DAC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D06BA71EF1430300E89EAB /* Tests.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 27AEDK3C9F;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.KueryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		147DB3F41EF116230071DAC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D06BA71EF1430300E89EAB /* Tests.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 27AEDK3C9F;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.KueryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		147DB3D51EF116230071DAC5 /* Build configuration list for PBXProject "Kuery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				147DB3ED1EF116230071DAC5 /* Debug */,
+				147DB3EE1EF116230071DAC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		147DB3EF1EF116230071DAC5 /* Build configuration list for PBXNativeTarget "Kuery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				147DB3F01EF116230071DAC5 /* Debug */,
+				147DB3F11EF116230071DAC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		147DB3F21EF116230071DAC5 /* Build configuration list for PBXNativeTarget "KueryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				147DB3F31EF116230071DAC5 /* Debug */,
+				147DB3F41EF116230071DAC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		14B407511EF159210038457E /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				14B407521EF159210038457E /* Model.xcdatamodel */,
+			);
+			currentVersion = 14B407521EF159210038457E /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 147DB3D21EF116230071DAC5 /* Project object */;
+}
