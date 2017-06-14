@@ -5,7 +5,7 @@
 [![Version](https://img.shields.io/cocoapods/v/Kuery.svg)](https://cocoapods.org/pods/Kuery)
 [![Platform](https://img.shields.io/cocoapods/p/Kuery.svg)](https://cocoapods.org/pods/Kuery)
 
-Kuery, a type-safe Core Data query API using Swift 4's Smart KeyPaths.
+Kuery, a type-safe Core Data query API using Swift 4's Smart KeyPaths. Inspired and borrowed a lot of things from [QueryKit](https://github.com/QueryKit/QueryKit) and [RealmEx](https://github.com/koher/RealmEx).
 
 ## Requirements
 Kuery is written in Swift 4.
