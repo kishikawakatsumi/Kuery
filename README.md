@@ -7,6 +7,26 @@
 
 Kuery, a type-safe Core Data query API using Swift 4's Smart KeyPaths.
 
+## Requirements
+Kuery is written in Swift 4.
+
+## Installation
+
+### CocoaPods
+Kuery is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'Kuery'
+```
+
+### Carthage
+For [Carthage](https://github.com/Carthage/Carthage), add the following to your `Cartfile`:
+
+```ogdl
+github "kishikawakatsumi/Kuery"
+```
+
 ## Usage
 
 ```Swift
