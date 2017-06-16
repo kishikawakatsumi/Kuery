@@ -45,7 +45,7 @@ Query(Person.self).filter(\Person.name == "Katsumi")
 Query(Person.self).filter(\Person.age > 20)
 ```
 
-The following code i a compile error occurs.
+The following code should be a compile error.
 
 ```swift
 Query(Person.self).filter(\Person.name > 20) // Compile error
