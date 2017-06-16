@@ -27,6 +27,31 @@ For [Carthage](https://github.com/Carthage/Carthage), add the following to your 
 github "kishikawakatsumi/Kuery"
 ```
 
+## Description
+
+Kuery provides type safety, code completion and avoidance of typos against `NSPredicate` queries.
+
+### Before
+
+```swift
+NSPredicate(format: "name == %@", "Katsumi")
+NSPredicate(format: "age > %@", 20)
+```
+
+### After
+
+```swift
+Query(Person.self).filter(\Person.name == "Katsumi")
+Query(Person.self).filter(\Person.age > 20)
+```
+
+The following code i a compile error occurs.
+
+```swift
+Query(Person.self).filter(\Person.name > 20) // Compile error
+Query(Person.self).filter(\Dog.name == "John") // Compile error
+```
+
 ## Usage
 
 ```Swift
