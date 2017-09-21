@@ -79,10 +79,10 @@ class QueryTests: XCTestCase {
             obj1.nsdataCol = "nsdata".data(using: String.Encoding.utf8)! as NSData
             obj1.dateCol = Date(timeIntervalSince1970: 1)
             obj1.nsdateCol = NSDate(timeIntervalSince1970: 2)
-            obj1.uuidCol = uuid
-            obj1.nsuuidCol = uuid as NSUUID
-            obj1.uriCol = URL(string: "https://example.com")!
-            obj1.nsuriCol = NSURL(string: "https://example.com")!
+//            obj1.uuidCol = uuid
+//            obj1.nsuuidCol = uuid as NSUUID
+//            obj1.uriCol = URL(string: "https://example.com")!
+//            obj1.nsuriCol = NSURL(string: "https://example.com")!
 
             let optObj1 = OptionalTestObject(context: context)
             optObj1.decimalCol = NSDecimalNumber(string: "0.123")
@@ -92,10 +92,10 @@ class QueryTests: XCTestCase {
             optObj1.nsdataCol = "nsdata".data(using: String.Encoding.utf8)! as NSData
             optObj1.dateCol = Date(timeIntervalSince1970: 1)
             optObj1.nsdateCol = NSDate(timeIntervalSince1970: 2)
-            optObj1.uuidCol = uuid
-            optObj1.nsuuidCol = uuid as NSUUID
-            optObj1.uriCol = URL(string: "https://example.com")!
-            optObj1.nsuriCol = NSURL(string: "https://example.com")!
+//            optObj1.uuidCol = uuid
+//            optObj1.nsuuidCol = uuid as NSUUID
+//            optObj1.uriCol = URL(string: "https://example.com")!
+//            optObj1.nsuriCol = NSURL(string: "https://example.com")!
 
             let _ = OptionalTestObject(context: context)
             let _ = OptionalTestObject(context: context)
@@ -541,70 +541,70 @@ class QueryTests: XCTestCase {
             } catch {
                 XCTFail("unknown error occurred")
             }
-            do {
-                let results = try Query(TestObject.self)
-                    .filter(\TestObject.uuidCol == self.uuid)
-                    .execute()
-                XCTAssertEqual(results.count, 1)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(TestObject.self)
-                    .filter(\TestObject.uuidCol != self.uuid)
-                    .execute()
-                XCTAssertEqual(results.count, 0)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(TestObject.self)
-                    .filter(\TestObject.nsuuidCol == self.uuid as NSUUID)
-                    .execute()
-                XCTAssertEqual(results.count, 1)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(TestObject.self)
-                    .filter(\TestObject.nsuuidCol != self.uuid as NSUUID)
-                    .execute()
-                XCTAssertEqual(results.count, 0)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(TestObject.self)
-                    .filter(\TestObject.uriCol == URL(string: "https://example.com")!)
-                    .execute()
-                XCTAssertEqual(results.count, 1)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(TestObject.self)
-                    .filter(\TestObject.uriCol != URL(string: "https://example.com")!)
-                    .execute()
-                XCTAssertEqual(results.count, 0)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(TestObject.self)
-                    .filter(\TestObject.nsuriCol == NSURL(string: "https://example.com")!)
-                    .execute()
-                XCTAssertEqual(results.count, 1)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(TestObject.self)
-                    .filter(\TestObject.nsuriCol != NSURL(string: "https://example.com")!)
-                    .execute()
-                XCTAssertEqual(results.count, 0)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
+//            do {
+//                let results = try Query(TestObject.self)
+//                    .filter(\TestObject.uuidCol == self.uuid)
+//                    .execute()
+//                XCTAssertEqual(results.count, 1)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(TestObject.self)
+//                    .filter(\TestObject.uuidCol != self.uuid)
+//                    .execute()
+//                XCTAssertEqual(results.count, 0)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(TestObject.self)
+//                    .filter(\TestObject.nsuuidCol == self.uuid as NSUUID)
+//                    .execute()
+//                XCTAssertEqual(results.count, 1)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(TestObject.self)
+//                    .filter(\TestObject.nsuuidCol != self.uuid as NSUUID)
+//                    .execute()
+//                XCTAssertEqual(results.count, 0)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(TestObject.self)
+//                    .filter(\TestObject.uriCol == URL(string: "https://example.com")!)
+//                    .execute()
+//                XCTAssertEqual(results.count, 1)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(TestObject.self)
+//                    .filter(\TestObject.uriCol != URL(string: "https://example.com")!)
+//                    .execute()
+//                XCTAssertEqual(results.count, 0)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(TestObject.self)
+//                    .filter(\TestObject.nsuriCol == NSURL(string: "https://example.com")!)
+//                    .execute()
+//                XCTAssertEqual(results.count, 1)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(TestObject.self)
+//                    .filter(\TestObject.nsuriCol != NSURL(string: "https://example.com")!)
+//                    .execute()
+//                XCTAssertEqual(results.count, 0)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
 
             do {
                 let results = try Query(OptionalTestObject.self)
@@ -894,70 +894,70 @@ class QueryTests: XCTestCase {
             } catch {
                 XCTFail("unknown error occurred")
             }
-            do {
-                let results = try Query(OptionalTestObject.self)
-                    .filter(\OptionalTestObject.uuidCol == self.uuid)
-                    .execute()
-                XCTAssertEqual(results.count, 1)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(OptionalTestObject.self)
-                    .filter(\OptionalTestObject.uuidCol != self.uuid)
-                    .execute()
-                XCTAssertEqual(results.count, 2)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(OptionalTestObject.self)
-                    .filter(\OptionalTestObject.nsuuidCol == self.uuid as NSUUID)
-                    .execute()
-                XCTAssertEqual(results.count, 1)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(OptionalTestObject.self)
-                    .filter(\OptionalTestObject.nsuuidCol != self.uuid as NSUUID)
-                    .execute()
-                XCTAssertEqual(results.count, 2)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(OptionalTestObject.self)
-                    .filter(\OptionalTestObject.uriCol == URL(string: "https://example.com")!)
-                    .execute()
-                XCTAssertEqual(results.count, 1)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(OptionalTestObject.self)
-                    .filter(\OptionalTestObject.uriCol != URL(string: "https://example.com")!)
-                    .execute()
-                XCTAssertEqual(results.count, 2)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(OptionalTestObject.self)
-                    .filter(\OptionalTestObject.nsuriCol == NSURL(string: "https://example.com")!)
-                    .execute()
-                XCTAssertEqual(results.count, 1)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
-            do {
-                let results = try Query(OptionalTestObject.self)
-                    .filter(\OptionalTestObject.nsuriCol != NSURL(string: "https://example.com")!)
-                    .execute()
-                XCTAssertEqual(results.count, 2)
-            } catch {
-                XCTFail("unknown error occurred")
-            }
+//            do {
+//                let results = try Query(OptionalTestObject.self)
+//                    .filter(\OptionalTestObject.uuidCol == self.uuid)
+//                    .execute()
+//                XCTAssertEqual(results.count, 1)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(OptionalTestObject.self)
+//                    .filter(\OptionalTestObject.uuidCol != self.uuid)
+//                    .execute()
+//                XCTAssertEqual(results.count, 2)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(OptionalTestObject.self)
+//                    .filter(\OptionalTestObject.nsuuidCol == self.uuid as NSUUID)
+//                    .execute()
+//                XCTAssertEqual(results.count, 1)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(OptionalTestObject.self)
+//                    .filter(\OptionalTestObject.nsuuidCol != self.uuid as NSUUID)
+//                    .execute()
+//                XCTAssertEqual(results.count, 2)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(OptionalTestObject.self)
+//                    .filter(\OptionalTestObject.uriCol == URL(string: "https://example.com")!)
+//                    .execute()
+//                XCTAssertEqual(results.count, 1)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(OptionalTestObject.self)
+//                    .filter(\OptionalTestObject.uriCol != URL(string: "https://example.com")!)
+//                    .execute()
+//                XCTAssertEqual(results.count, 2)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(OptionalTestObject.self)
+//                    .filter(\OptionalTestObject.nsuriCol == NSURL(string: "https://example.com")!)
+//                    .execute()
+//                XCTAssertEqual(results.count, 1)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
+//            do {
+//                let results = try Query(OptionalTestObject.self)
+//                    .filter(\OptionalTestObject.nsuriCol != NSURL(string: "https://example.com")!)
+//                    .execute()
+//                XCTAssertEqual(results.count, 2)
+//            } catch {
+//                XCTFail("unknown error occurred")
+//            }
         }
     }
 

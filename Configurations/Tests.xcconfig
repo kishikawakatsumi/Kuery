@@ -13,3 +13,8 @@ LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks
 LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks;
 
 EXCLUDED_SOURCE_FILE_NAMES[sdk=watch*] = *;
+
+IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+WATCHOS_DEPLOYMENT_TARGET = 4.0;
+TVOS_DEPLOYMENT_TARGET = 11.0;
+MACOSX_DEPLOYMENT_TARGET = 10.13;

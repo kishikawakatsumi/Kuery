@@ -31,9 +31,5 @@ extension TestObject {
     @NSManaged public var nsdataCol: NSData
     @NSManaged public var dateCol: Date
     @NSManaged public var nsdateCol: NSDate
-    @NSManaged public var uuidCol: UUID
-    @NSManaged public var nsuuidCol: NSUUID
-    @NSManaged public var uriCol: URL
-    @NSManaged public var nsuriCol: NSURL
 
 }

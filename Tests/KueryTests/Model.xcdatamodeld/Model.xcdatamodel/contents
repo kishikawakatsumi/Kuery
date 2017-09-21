@@ -13,11 +13,7 @@
         <attribute name="nsdataCol" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="nsdateCol" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="nsstringCol" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="nsuriCol" optional="YES" attributeType="URI" syncable="YES"/>
-        <attribute name="nsuuidCol" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="stringCol" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uriCol" optional="YES" attributeType="URI" syncable="YES"/>
-        <attribute name="uuidCol" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -42,16 +38,12 @@
         <attribute name="nsdataCol" attributeType="Binary" syncable="YES"/>
         <attribute name="nsdateCol" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="nsstringCol" attributeType="String" syncable="YES"/>
-        <attribute name="nsuriCol" attributeType="URI" syncable="YES"/>
-        <attribute name="nsuuidCol" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="stringCol" attributeType="String" syncable="YES"/>
-        <attribute name="uriCol" attributeType="URI" syncable="YES"/>
-        <attribute name="uuidCol" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <elements>
         <element name="Dog" positionX="-54" positionY="18" width="128" height="105"/>
         <element name="Person" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="TestObject" positionX="-54" positionY="45" width="128" height="315"/>
-        <element name="OptionalTestObject" positionX="-18" positionY="171" width="128" height="210"/>
+        <element name="TestObject" positionX="-54" positionY="45" width="128" height="255"/>
+        <element name="OptionalTestObject" positionX="-18" positionY="171" width="128" height="150"/>
     </elements>
 </model>

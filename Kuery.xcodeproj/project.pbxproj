@@ -226,7 +226,7 @@
 					};
 					147DB3E31EF116230071DAC5 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -309,19 +309,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D06BAA1EF1430300E89EAB /* Debug.xcconfig */;
 			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -329,20 +317,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D06BA81EF1430300E89EAB /* Release.xcconfig */;
 			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -353,11 +328,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.Kuery;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -369,11 +340,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.Kuery;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -381,12 +348,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D06BA71EF1430300E89EAB /* Tests.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 27AEDK3C9F;
+				CODE_SIGN_STYLE = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.KueryTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -394,12 +357,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D06BA71EF1430300E89EAB /* Tests.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 27AEDK3C9F;
+				CODE_SIGN_STYLE = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.KueryTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
