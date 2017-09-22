@@ -23,140 +23,77 @@ public prefix func ! <ManagedObject>(predicate: BasicPredicate<ManagedObject>) -
     return NotPredicate(original: predicate)
 }
 
-// MARK: String
-
-public func == <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, String?>, rhs: String) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K == %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSString])
+// MARK: EquatableProperty
+public func == <ManagedObject: NSManagedObject, Property: EquatableProperty>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K == %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs._object])
 }
 
-public func != <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, String?>, rhs: String) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K != %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSString])
+public func != <ManagedObject: NSManagedObject, Property: EquatableProperty>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K != %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs._object])
 }
 
-public func ~= <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, String?>, rhs: String) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K LIKE %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSString])
+public func ~= <ManagedObject: NSManagedObject, Property: RegexMatchableProperty>(lhs: KeyPath<ManagedObject, Property>, rhs: String) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K LIKE %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs._object])
 }
 
-public func << <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, String?>, rhs: [String]) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K IN %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSArray])
+public func << <ManagedObject: NSManagedObject, Property: EquatableProperty>(lhs: KeyPath<ManagedObject, Property>, rhs: [Property]) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K IN %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs.map { $0._object } as NSArray])
 }
 
-// MARK: Bool
-
-public func == <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, Bool>, rhs: Bool) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K == %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSNumber])
+// MARK: Optional<EquatableProperty>
+public func == <ManagedObject: NSManagedObject, Property: EquatableProperty>(lhs: KeyPath<ManagedObject, Property?>, rhs: Property?) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K == %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs?._object ?? NSNull()])
 }
 
-public func != <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, Bool>, rhs: Bool) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K != %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSNumber])
+public func != <ManagedObject: NSManagedObject, Property: EquatableProperty>(lhs: KeyPath<ManagedObject, Property?>, rhs: Property?) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K != %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs?._object ?? NSNull()])
 }
 
-public func << <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, Bool>, rhs: [Bool]) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K IN %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSArray])
+public func ~= <ManagedObject: NSManagedObject, Property: RegexMatchableProperty>(lhs: KeyPath<ManagedObject, Property?>, rhs: String) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K LIKE %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs._object])
 }
 
-// MARK: URL
-
-public func == <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, URL?>, rhs: URL) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K == %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSURL])
+public func << <ManagedObject: NSManagedObject, Property: EquatableProperty>(lhs: KeyPath<ManagedObject, Property?>, rhs: [Property]) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K IN %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs.map { $0._object } as NSArray])
 }
 
-public func != <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, URL?>, rhs: URL) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K != %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSURL])
+// MARK: ComparableProperty
+public func < <ManagedObject: NSManagedObject, Property: ComparableProperty>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K < %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs._object])
 }
 
-public func << <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, URL?>, rhs: [URL]) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K IN %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSArray])
+public func > <ManagedObject: NSManagedObject, Property: ComparableProperty>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K > %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs._object])
 }
 
-// MARK: UUID
-
-public func == <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, UUID?>, rhs: UUID) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K == %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSUUID])
+public func <= <ManagedObject: NSManagedObject, Property: ComparableProperty>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K <= %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs._object])
 }
 
-public func != <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, UUID?>, rhs: UUID) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K != %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSUUID])
+public func >= <ManagedObject: NSManagedObject, Property: ComparableProperty>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K >= %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs._object])
 }
 
-public func << <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, UUID?>, rhs: [UUID]) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K IN %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSArray])
-}
-
-// MARK: Object
-
-public func == <ManagedObject: NSManagedObject, RelationObject: NSManagedObject>(lhs: KeyPath<ManagedObject, RelationObject?>, rhs: RelationObject) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K == %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs])
-}
-
-public func != <ManagedObject: NSManagedObject, RelationObject: NSManagedObject>(lhs: KeyPath<ManagedObject, RelationObject?>, rhs: RelationObject) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K != %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs])
-}
-
-public func << <ManagedObject: NSManagedObject, RelationObject: NSManagedObject>(lhs: KeyPath<ManagedObject, RelationObject?>, rhs: [RelationObject]) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K IN %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSArray])
-}
-
-// MARK: Numeric
-
-public func < <ManagedObject: NSManagedObject, Property: Numeric>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K < %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as! NSNumber])
-}
-
-public func > <ManagedObject: NSManagedObject, Property: Numeric>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K > %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as! NSNumber])
-}
-
-public func <= <ManagedObject: NSManagedObject, Property: Numeric>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K <= %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as! NSNumber])
-}
-
-public func >= <ManagedObject: NSManagedObject, Property: Numeric>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K >= %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as! NSNumber])
-}
-
-public func == <ManagedObject: NSManagedObject, Property: Numeric>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K == %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as! NSNumber])
-}
-
-public func != <ManagedObject: NSManagedObject, Property: Numeric>(lhs: KeyPath<ManagedObject, Property>, rhs: Property) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K != %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as! NSNumber])
-}
-
-public func << <ManagedObject: NSManagedObject, Property: Numeric>(lhs: KeyPath<ManagedObject, Property>, rhs: [Property]) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K IN %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSArray])
-}
-
-public func << <ManagedObject: NSManagedObject, Property: Numeric>(lhs: KeyPath<ManagedObject, Property>, rhs: ClosedRange<Property>) -> BasicPredicate<ManagedObject> {
+public func << <ManagedObject: NSManagedObject, Property: ComparableProperty>(lhs: KeyPath<ManagedObject, Property>, rhs: ClosedRange<Property>) -> BasicPredicate<ManagedObject> {
     return BasicPredicate<ManagedObject>(format: "%K BETWEEN %@", arguments: [lhs._kvcKeyPathString! as NSString, [rhs.lowerBound, rhs.upperBound] as NSArray])
 }
 
-public func << <ManagedObject: NSManagedObject, Property: Numeric>(lhs: KeyPath<ManagedObject, Property>, rhs: CountableClosedRange<Property>) -> BasicPredicate<ManagedObject> {
+public func << <ManagedObject: NSManagedObject, Property: ComparableProperty>(lhs: KeyPath<ManagedObject, Property>, rhs: CountableClosedRange<Property>) -> BasicPredicate<ManagedObject> {
     return BasicPredicate<ManagedObject>(format: "%K BETWEEN %@", arguments: [lhs._kvcKeyPathString! as NSString, [rhs.lowerBound, rhs.upperBound] as NSArray])
 }
 
-// MARK: Date
-
-public func < <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, Date?>, rhs: Date) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K < %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSDate])
+// MARK: Optional<ComparableProperty>
+public func < <ManagedObject: NSManagedObject, Property: ComparableProperty>(lhs: KeyPath<ManagedObject, Property?>, rhs: Property?) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K < %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs?._object ?? NSNull()])
 }
 
-public func > <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, Date?>, rhs: Date) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K > %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSDate])
+public func > <ManagedObject: NSManagedObject, Property: ComparableProperty>(lhs: KeyPath<ManagedObject, Property?>, rhs: Property?) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K > %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs?._object ?? NSNull()])
+}
+public func <= <ManagedObject: NSManagedObject, Property: ComparableProperty>(lhs: KeyPath<ManagedObject, Property?>, rhs: Property?) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K <= %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs?._object ?? NSNull()])
 }
 
-public func <= <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, Date?>, rhs: Date) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K <= %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSDate])
-}
-
-public func >= <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, Date?>, rhs: Date) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K >= %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSDate])
-}
-
-public func == <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, Date?>, rhs: Date) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K == %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSDate])
-}
-
-public func != <ManagedObject: NSManagedObject>(lhs: KeyPath<ManagedObject, Date?>, rhs: Date) -> BasicPredicate<ManagedObject> {
-    return BasicPredicate<ManagedObject>(format: "%K != %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs as NSDate])
+public func >= <ManagedObject: NSManagedObject, Property: ComparableProperty>(lhs: KeyPath<ManagedObject, Property?>, rhs: Property?) -> BasicPredicate<ManagedObject> {
+    return BasicPredicate<ManagedObject>(format: "%K >= %@", arguments: [lhs._kvcKeyPathString! as NSString, rhs?._object ?? NSNull()])
 }
