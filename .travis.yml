@@ -70,5 +70,4 @@ env:
 branches:
   only:
   - master
-deploy:
-  skip_cleanup: true
+skip_cleanup: true
