@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Kuery'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = "A type-safe Core Data query API using Swift 4's Smart KeyPaths."
   s.description      = <<-DESC
                          Kuery, a type-safe Core Data query API using Swift 4's Smart KeyPaths.
