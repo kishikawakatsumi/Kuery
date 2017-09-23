@@ -1,9 +1,26 @@
 # Kuery
 
-[![Build Status](https://www.bitrise.io/app/6c18477b4b7fa507/status.svg?token=YawzB8weVKp_uqJ-DhdkXg)](https://www.bitrise.io/app/6c18477b4b7fa507)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Version](https://img.shields.io/cocoapods/v/Kuery.svg)](https://cocoapods.org/pods/Kuery)
-[![Platform](https://img.shields.io/cocoapods/p/Kuery.svg)](https://cocoapods.org/pods/Kuery)
+<p align="center">
+    <a href="https://travis-ci.org/kishikawakatsumi/SpreadsheetView">
+        <img src="https://travis-ci.org/kishikawakatsumi/Kuery.svg?branch=master&style=flat"
+             alt="Build Status">
+    </a>
+    <a href="https://codecov.io/gh/kishikawakatsumi/SpreadsheetView">
+        <img src="https://codecov.io/gh/kishikawakatsumi/Kuery/branch/master/graph/badge.svg" alt="Codecov" />
+    </a>
+    <a href="https://cocoapods.org/pods/SpreadsheetView">
+        <img src="https://img.shields.io/cocoapods/v/Kuery.svg?style=flat"
+             alt="Pods Version">
+    </a>
+    <a href="http://cocoapods.org/pods/SpreadsheetView/">
+        <img src="https://img.shields.io/cocoapods/p/Kuery.svg?style=flat"
+             alt="Platforms">
+    </a>
+    <a href="https://github.com/Carthage/Carthage">
+        <img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat"
+             alt="Carthage Compatible">
+    </a>
+</p>
 
 Kuery, a type-safe Core Data query API using Swift 4's Smart KeyPaths. Inspired and borrowed a lot of things from [QueryKit](https://github.com/QueryKit/QueryKit) and [RealmEx](https://github.com/koher/RealmEx).
 
@@ -96,7 +113,7 @@ context.perform {
 ```
 
 ### Feature request for Swift Standard Library
- 
+
 It requires a string representation of `KeyPath` to construct `NSPredicate` from `KeyPath`. However, the API is not officially visible currently. The feature request is tracked at [SR-5220](https://bugs.swift.org/browse/SR-5220).
 
 [[SR-5220] Expose API to retrieve string representation of KeyPath - Swift](https://bugs.swift.org/browse/SR-5220)
