@@ -1,18 +1,18 @@
 # Kuery
 
 <p align="center">
-    <a href="https://travis-ci.org/kishikawakatsumi/SpreadsheetView">
+    <a href="https://travis-ci.org/kishikawakatsumi/Kuery">
         <img src="https://travis-ci.org/kishikawakatsumi/Kuery.svg?branch=master&style=flat"
              alt="Build Status">
     </a>
-    <a href="https://codecov.io/gh/kishikawakatsumi/SpreadsheetView">
+    <a href="https://codecov.io/gh/kishikawakatsumi/Kuery">
         <img src="https://codecov.io/gh/kishikawakatsumi/Kuery/branch/master/graph/badge.svg" alt="Codecov" />
     </a>
-    <a href="https://cocoapods.org/pods/SpreadsheetView">
+    <a href="https://cocoapods.org/pods/Kuery">
         <img src="https://img.shields.io/cocoapods/v/Kuery.svg?style=flat"
              alt="Pods Version">
     </a>
-    <a href="http://cocoapods.org/pods/SpreadsheetView/">
+    <a href="http://cocoapods.org/pods/Kuery/">
         <img src="https://img.shields.io/cocoapods/p/Kuery.svg?style=flat"
              alt="Platforms">
     </a>
