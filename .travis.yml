@@ -1,66 +1,23 @@
 language: objective-c
-cache:
-  directories:
-  - build
-  - /usr/local/Homebrew
-  - $HOME/Library/Caches/Homebrew
-jobs:
-  include:
-  - stage: build
-    osx_image: xcode9
-    script:
-    - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION"
-      -sdk iphonesimulator -derivedDataPath build -enableCodeCoverage YES ENABLE_TESTABILITY=YES
-      build-for-testing
-    - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION"
-      -sdk appletvsimulator -derivedDataPath build -enableCodeCoverage YES ENABLE_TESTABILITY=YES
-      build-for-testing
-    - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION"
-      -sdk macosx -derivedDataPath build -enableCodeCoverage YES ENABLE_TESTABILITY=YES
-      build-for-testing
-  - &test
-    stage: test
-    osx_image: xcode9
-    script:
-    - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION"
-      -sdk iphonesimulator -destination 'name=iPhone 5s,OS=10.3.1' -derivedDataPath build
-      -enableCodeCoverage YES ENABLE_TESTABILITY=YES
-      test-without-building
-    after_success:
-    - ruby Scripts/coverage.rb "$SCHEME"
-    - bash <(curl -s https://codecov.io/bash) -f 'coverage.txt'
-  - <<: *test
-    script:
-    - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION"
-      -sdk iphonesimulator -destination 'name=iPhone 7,OS=11.0' -derivedDataPath build
-      -enableCodeCoverage YES ENABLE_TESTABILITY=YES
-      test-without-building
-  - <<: *test
-    script:
-    - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION"
-      -sdk appletvsimulator -destination 'name=Apple TV 1080p,OS=10.0' -derivedDataPath build
-      -enableCodeCoverage YES ENABLE_TESTABILITY=YES
-      test-without-building
-  - <<: *test
-    script:
-    - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION"
-      -sdk appletvsimulator -destination 'name=Apple TV 1080p,OS=11.0' -derivedDataPath build
-      -enableCodeCoverage YES ENABLE_TESTABILITY=YES
-      test-without-building
-  - <<: *test
-    script:
-    - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION"
-      -sdk macosx -destination 'platform=OS X,arch=x86_64' -derivedDataPath build
-      -enableCodeCoverage YES ENABLE_TESTABILITY=YES
-      test-without-building
-  - stage: carthage
-    osx_image: xcode9
-    install:
-    - brew update
-    - brew outdated carthage || brew upgrade carthage
-    script:
-    - carthage build --no-skip-current
+osx_image: xcode9
+install:
+- brew update
+- brew outdated carthage || brew upgrade carthage
+script:
+- xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION"
+  -sdk "$SDK" -destination "$DESTINATION" -derivedDataPath build
+  -enableCodeCoverage YES ENABLE_TESTABILITY=YES "$ACTION"
+after_success:
+- ruby Scripts/coverage.rb "$SCHEME"
+- bash <(curl -s https://codecov.io/bash) -f 'coverage.txt'
+- carthage build --no-skip-current
 env:
+  matrix:
+  - SDK=iphonesimulator DESTINATION='name=iPhone 5s,OS=10.3.1' ACTION=test
+  - SDK=iphonesimulator DESTINATION='name=iPhone 7,OS=11.0' ACTION=test
+  - SDK=appletvsimulator DESTINATION='name=Apple TV 1080p,OS=10.0' ACTION=test
+  - SDK=appletvsimulator DESTINATION='name=Apple TV 1080p,OS=11.0' ACTION=test
+  - SDK=macosx DESTINATION='platform=OS X,arch=x86_64' ACTION=test
   global:
   - LANG=en_US.UTF-8
   - LC_ALL=en_US.UTF-8
@@ -70,4 +27,3 @@ env:
 branches:
   only:
   - master
-skip_cleanup: true
