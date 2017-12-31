@@ -111,7 +111,7 @@ class QueryTests: XCTestCase {
     }
     
     func testFetchAll() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self).execute()
                 XCTAssertEqual(results.count, 3)
@@ -140,7 +140,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilter() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(TestObject.self)
                     .filter(\TestObject.boolCol == false)
@@ -962,7 +962,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterString() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.name == "Katsumi")
@@ -984,7 +984,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterInt() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.age > 20)
@@ -1054,7 +1054,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterFloat() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.weight == 60)
@@ -1067,7 +1067,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterBool() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Dog.self)
                     .filter(\Dog.vaccinated == true)
@@ -1093,7 +1093,7 @@ class QueryTests: XCTestCase {
         let components = DateComponents(calendar: Calendar(identifier: .gregorian), year: 1980, month: 10, day: 28)
         let date = components.date!
 
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.birthday == date)
@@ -1107,7 +1107,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterObject() {
-        context.perform {
+        context.performAndWait {
             do {
                 let person = try Query(Person.self)
                     .filter(\.name == "Katsumi")
@@ -1126,7 +1126,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterAnd() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.name == "Katsumi" && \Person.age == 36)
@@ -1141,7 +1141,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterOr() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.name == "Katsumi" || \Person.age < 20)
@@ -1154,7 +1154,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterNot() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(!(\Person.name == "Katsumi"))
@@ -1167,7 +1167,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterChain() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.name == "Katsumi")
@@ -1183,7 +1183,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterIn() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.name << ["Katsumi", "Hanako"])
@@ -1206,7 +1206,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterBetween() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.age << (18...24))
@@ -1227,7 +1227,7 @@ class QueryTests: XCTestCase {
     }
 
     func testFilterLike() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.name ~= "Ka*")
@@ -1248,7 +1248,7 @@ class QueryTests: XCTestCase {
     }
 
     func testSort() {
-        context.perform {
+        context.performAndWait {
             do {
                 let results = try Query(Person.self)
                     .filter(\Person.name == "Katsumi" || \Person.name == "Taro")
