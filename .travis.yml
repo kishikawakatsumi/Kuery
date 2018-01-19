@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode9.2
 install:
 - brew update
 - brew outdated carthage || brew upgrade carthage
@@ -14,7 +14,7 @@ after_success:
 env:
   matrix:
   - SDK=iphonesimulator DESTINATION='name=iPhone 5s,OS=10.3.1' ACTION=test
-  - SDK=iphonesimulator DESTINATION='name=iPhone 7,OS=11.0' ACTION=test
+  - SDK=iphonesimulator DESTINATION='name=iPhone 7,OS=11.2' ACTION=test
   - SDK=appletvsimulator DESTINATION='name=Apple TV 1080p,OS=10.0' ACTION=test
   - SDK=appletvsimulator DESTINATION='name=Apple TV 1080p,OS=11.0' ACTION=test
   - SDK=macosx DESTINATION='platform=OS X,arch=x86_64' ACTION=test
