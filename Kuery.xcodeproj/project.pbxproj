@@ -90,6 +90,7 @@
 				147DB3DC1EF116230071DAC5 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		147DB3DC1EF116230071DAC5 /* Products */ = {
 			isa = PBXGroup;
