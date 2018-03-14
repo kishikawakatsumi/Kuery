@@ -1274,4 +1274,94 @@ class QueryTests: XCTestCase {
             }
         }
     }
+
+    func testPredicate() {
+        context.performAndWait {
+            do {
+                let predicate = Query(Person.self)
+                    .predicate
+                XCTAssertNil(predicate)
+            }
+
+            do {
+                let predicate = Query(Person.self)
+                    .filter(\Person.name == "Katsumi")
+                    .predicate
+                XCTAssertEqual(predicate, NSPredicate(format: "name = \"Katsumi\""))
+            }
+        }
+    }
+
+    func testBuild() {
+        context.performAndWait {
+            do {
+                let request = Query(Person.self).build()
+                XCTAssertNil(request.predicate)
+                XCTAssertNil(request.sortDescriptors)
+            }
+
+            do {
+                let request = Query(Person.self)
+                    .filter(\Person.name == "Katsumi")
+                    .build()
+                XCTAssertEqual(request.predicate, NSPredicate(format: "name = \"Katsumi\""))
+                XCTAssertNil(request.sortDescriptors)
+            }
+
+            do {
+                let request = Query(Person.self)
+                    .sort(\Person.age)
+                    .build()
+                XCTAssertNil(request.predicate)
+                guard let descriptors = request.sortDescriptors else {
+                    return XCTFail("Request sort descriptors are unexpectedly nil")
+                }
+                XCTAssertEqual(descriptors, [NSSortDescriptor(key: "age", ascending: true)])
+            }
+        }
+    }
+
+    func testController() {
+        context.performAndWait {
+            do {
+                _ = try Query(Person.self).controller(for: context)
+                XCTFail("Controller creation should have failed")
+            } catch {
+                // expect to fail because we're missing a sort descriptor
+            }
+
+            do {
+                let controller = try Query(Person.self)
+                    .sort(\Person.name)
+                    .controller(for: context)
+                XCTAssertEqual(controller.managedObjectContext, context)
+                XCTAssertNil(controller.sectionNameKeyPath)
+                XCTAssertNil(controller.cacheName)
+            } catch {
+                XCTFail("unknown error occurred")
+            }
+
+            do {
+                let controller = try Query(Person.self)
+                    .sort(\Person.name)
+                    .controller(for: context, sectionNameKeyPath: "name")
+                XCTAssertEqual(controller.managedObjectContext, context)
+                XCTAssertEqual(controller.sectionNameKeyPath, "name")
+                XCTAssertNil(controller.cacheName)
+            } catch {
+                XCTFail("unknown error occurred")
+            }
+
+            do {
+                let controller = try Query(Person.self)
+                    .sort(\Person.name)
+                    .controller(for: context, sectionNameKeyPath: "name", cacheName: "test")
+                XCTAssertEqual(controller.managedObjectContext, context)
+                XCTAssertEqual(controller.sectionNameKeyPath, "name")
+                XCTAssertEqual(controller.cacheName, "test")
+            } catch {
+                XCTFail("unknown error occurred")
+            }
+        }
+    }
 }
