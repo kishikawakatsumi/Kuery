@@ -9,6 +9,10 @@
 import Foundation
 import CoreData
 
+public enum QueryError: Error {
+    case needsSortDescriptor
+}
+
 public class Query<ResultType> where ResultType : NSFetchRequestResult {
     private let fetchRequest: NSFetchRequest<ResultType>
 
@@ -45,5 +49,33 @@ public class Query<ResultType> where ResultType : NSFetchRequestResult {
             return self
         }
         return self
+    }
+
+    public func build() -> NSFetchRequest<ResultType> {
+        let request = NSFetchRequest<ResultType>(entityName: String(describing: ResultType.self))
+
+        request.predicate = fetchRequest.predicate
+        request.sortDescriptors = fetchRequest.sortDescriptors
+
+        return request
+    }
+
+    public func controller(for context: NSManagedObjectContext, sectionNameKeyPath: String? = nil, cacheName: String? = nil) throws -> NSFetchedResultsController<ResultType> {
+        let request = build()
+
+        guard !(request.sortDescriptors?.isEmpty ?? true) else {
+            throw QueryError.needsSortDescriptor
+        }
+
+        return NSFetchedResultsController<ResultType>(
+            fetchRequest: request,
+            managedObjectContext: context,
+            sectionNameKeyPath: sectionNameKeyPath,
+            cacheName: cacheName
+        )
+    }
+
+    public var predicate: NSPredicate? {
+        return fetchRequest.predicate
     }
 }
