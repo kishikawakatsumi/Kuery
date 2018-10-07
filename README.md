@@ -21,12 +21,16 @@
              alt="Carthage Compatible">
     </a>
     <a href="https://swift.org/">
-        <img src="https://img.shields.io/badge/Swift-3.x-orange.svg?style=flat"
-             alt="Swift 3.x">
-    </a>
-    <a href="https://swift.org/">
         <img src="https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat"
              alt="Swift 4.0">
+    </a>
+    <a href="https://swift.org/">
+        <img src="https://img.shields.io/badge/Swift-4.1-orange.svg?style=flat"
+             alt="Swift 4.1">
+    </a>
+    <a href="https://swift.org/">
+        <img src="https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat"
+             alt="Swift 4.2">
     </a>
 </p>
 
