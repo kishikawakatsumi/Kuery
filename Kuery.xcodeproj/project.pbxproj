@@ -216,7 +216,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Kishikawa Katsumi";
 				TargetAttributes = {
 					147DB3DA1EF116230071DAC5 = {
@@ -309,7 +309,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D06BAA1EF1430300E89EAB /* Debug.xcconfig */;
 			buildSettings = {
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 			};
 			name = Debug;
 		};
@@ -317,7 +316,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D06BA81EF1430300E89EAB /* Release.xcconfig */;
 			buildSettings = {
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 			};
 			name = Release;
 		};
@@ -325,11 +323,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D06BA91EF1430300E89EAB /* Kuery.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CODE_SIGN_STYLE = Automatic;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -337,10 +330,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D06BA91EF1430300E89EAB /* Kuery.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CODE_SIGN_STYLE = Automatic;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 			};
 			name = Release;
 		};
@@ -348,8 +337,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D06BA71EF1430300E89EAB /* Tests.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 			};
 			name = Debug;
 		};
@@ -357,8 +344,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14D06BA71EF1430300E89EAB /* Tests.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 			};
 			name = Release;
 		};
