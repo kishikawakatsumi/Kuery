@@ -1,8 +1,5 @@
 language: objective-c
-osx_image: xcode9
-install:
-- brew update
-- brew outdated carthage || brew upgrade carthage
+osx_image: xcode10
 script:
 - xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION"
   -sdk "$SDK" -destination "$DESTINATION" -derivedDataPath build
@@ -14,9 +11,11 @@ after_success:
 env:
   matrix:
   - SDK=iphonesimulator DESTINATION='name=iPhone 5s,OS=10.3.1' ACTION=test
-  - SDK=iphonesimulator DESTINATION='name=iPhone 7,OS=11.0' ACTION=test
+  - SDK=iphonesimulator DESTINATION='name=iPhone 7,OS=11.4' ACTION=test
+  - SDK=iphonesimulator DESTINATION='name=iPhone X,OS=12.0' ACTION=test
   - SDK=appletvsimulator DESTINATION='name=Apple TV 1080p,OS=10.0' ACTION=test
-  - SDK=appletvsimulator DESTINATION='name=Apple TV 1080p,OS=11.0' ACTION=test
+  - SDK=appletvsimulator DESTINATION='name=Apple TV 4K,OS=11.0' ACTION=test
+  - SDK=appletvsimulator DESTINATION='name=Apple TV 4K,OS=12.0' ACTION=test
   - SDK=macosx DESTINATION='platform=OS X,arch=x86_64' ACTION=test
   global:
   - LANG=en_US.UTF-8
